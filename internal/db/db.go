@@ -59,6 +59,33 @@ func Connect(connStr string) (Database, error) {
 }
 
 func (s *sqlDB) Query(query string) (*Result, error) {
+	upperQuery := strings.TrimSpace(strings.ToUpper(query))
+	isSelect := strings.HasPrefix(upperQuery, "SELECT") || 
+				strings.HasPrefix(upperQuery, "PRAGMA") || 
+				strings.HasPrefix(upperQuery, "SHOW") || 
+				strings.HasPrefix(upperQuery, "EXPLAIN") ||
+				strings.HasPrefix(upperQuery, "WITH")
+
+	if !isSelect {
+		res, err := s.db.Exec(query)
+		if err != nil {
+			return nil, err
+		}
+
+		rowsAffected, _ := res.RowsAffected()
+		lastInsertID, _ := res.LastInsertId()
+
+		msg := fmt.Sprintf("Success. Rows affected: %d", rowsAffected)
+		if lastInsertID > 0 {
+			msg += fmt.Sprintf(", Last Insert ID: %d", lastInsertID)
+		}
+
+		return &Result{
+			Columns: []string{"Status"},
+			Rows:    [][]string{{msg}},
+		}, nil
+	}
+
 	rows, err := s.db.Query(query)
 	if err != nil {
 		return nil, err

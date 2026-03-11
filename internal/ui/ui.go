@@ -125,7 +125,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 
 		case "h":
-			if m.focus == focusInput {
+			if m.focus == focusInput && !m.showHelp {
 				m.input, cmd = m.input.Update(msg)
 				return m, cmd
 			}
@@ -133,6 +133,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if m.showHelp {
 				m.showDetail = false
 			}
+			return m, nil
 
 		case "c":
 			if m.focus == focusTable && m.result != nil {
@@ -196,6 +197,10 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 
 		case "esc":
+			if m.showHelp {
+				m.showHelp = false
+				return m, nil
+			}
 			if m.showDetail {
 				m.showDetail = false
 				return m, nil
@@ -444,6 +449,13 @@ func (m Model) helpView() string {
 		tutorial.Render("  SELECT * FROM users WHERE age > 18;"),
 		tutorial.Render("  -- Join tables"),
 		tutorial.Render("  SELECT u.name, p.title FROM users u JOIN posts p ON u.id = p.user_id;"),
+		"",
+		tutorial.Render("  -- Create / Insert / Update / Delete"),
+		tutorial.Render("  CREATE TABLE items (id INTEGER PRIMARY KEY, name TEXT);"),
+		tutorial.Render("  INSERT INTO items (name) VALUES ('Laptop'), ('Mouse');"),
+		tutorial.Render("  UPDATE items SET name = 'Mechanical Mouse' WHERE id = 2;"),
+		tutorial.Render("  DELETE FROM items WHERE id = 1;"),
+		"",
 		tutorial.Render("  -- SQLite Meta: List Tables / Schema"),
 		tutorial.Render("  SELECT name FROM sqlite_master WHERE type='table';"),
 		tutorial.Render("  PRAGMA table_info(table_name); -- Describe table"),
